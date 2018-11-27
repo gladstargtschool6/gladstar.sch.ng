@@ -1,2 +1,2 @@
-# gladstar.sch.ng
-Providing qualitative, convenient and cost effective education.
+# Gladstar Gifted and Talented School
+Facilitating Functional Education For The Next Innovators, Entrepreneurs and Leaders.

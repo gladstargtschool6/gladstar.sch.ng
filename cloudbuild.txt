@@ -1,0 +1,8 @@
+﻿serviceAccountName: build
+steps:
+- name: Is
+  image: Gladstar Gifted and Talented School
+  args: ['ls']
+- name: date
+  image: Gladstar Gifted and Talented School
+  args: ['/bin/date']

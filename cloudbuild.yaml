@@ -1,8 +1,8 @@
 ﻿serviceAccountName: build
 steps:
 - name: Is
-  image: busybox
+  image: gcr.io/canvas-fulcrum-225902/github.com/gladstargtschool6/gladstar.sch.ng:7a0926c8929dc866ac4073ccf67719b83130ffc2
   args: ['ls']
 - name: date
-  image: busybox
+  image: gcr.io/canvas-fulcrum-225902/github.com/gladstargtschool6/gladstar.sch.ng:7a0926c8929dc866ac4073ccf67719b83130ffc2
   args: ['/bin/date']

@@ -16,24 +16,24 @@ URL:      www.blogger.com
 
 /* Variable definitions
    ====================
-   <Variable name="keycolor" description="Main Color" type="color" default="#66bbdd" value="#cc6611"/>
+   <Variable name="keycolor" description="Main Color" type="color" default="#66bbdd" value="#fffde9"/>
 
    <Group description="Page Text" selector="body">
      <Variable name="body.font" description="Font" type="font"
          default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
-     <Variable name="body.text.color" description="Text Color" type="color" default="#222222" value="#222222"/>
+     <Variable name="body.text.color" description="Text Color" type="color" default="#222222" value="#686868"/>
    </Group>
 
    <Group description="Backgrounds" selector=".body-fauxcolumns-outer">
-     <Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd" value="#eeaa00"/>
+     <Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd" value="#d8ff1a"/>
      <Variable name="content.background.color" description="Main Background" type="color" default="#ffffff" value="#ffffff"/>
-     <Variable name="header.background.color" description="Header Background" type="color" default="transparent" value="#cc6611"/>
+     <Variable name="header.background.color" description="Header Background" type="color" default="transparent" value="#ecda21"/>
    </Group>
 
    <Group description="Links" selector=".main-outer">
-     <Variable name="link.color" description="Link Color" type="color" default="#2288bb" value="#cc6611"/>
-     <Variable name="link.visited.color" description="Visited Color" type="color" default="#888888" value="#888888"/>
-     <Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff" value="#ff9900"/>
+     <Variable name="link.color" description="Link Color" type="color" default="#2288bb" value="#ec1f1f"/>
+     <Variable name="link.visited.color" description="Visited Color" type="color" default="#888888" value="#999999"/>
+     <Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff" value="#f3ff26"/>
    </Group>
 
    <Group description="Blog Title" selector=".header h1">
@@ -50,13 +50,13 @@ URL:      www.blogger.com
    <Group description="Tabs Text" selector=".tabs-inner .widget li a">
      <Variable name="tabs.font" description="Font" type="font"
          default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
-     <Variable name="tabs.text.color" description="Text Color" type="color" default="#999999" value="#999999"/>
+     <Variable name="tabs.text.color" description="Text Color" type="color" default="#999999" value="#a7a7a7"/>
      <Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000" value="#000000"/>
    </Group>
 
    <Group description="Tabs Background" selector=".tabs-outer .PageList">
-     <Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5" value="#f5f5f5"/>
-     <Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee" value="#eeeeee"/>
+     <Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5" value="#fafafa"/>
+     <Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee" value="#f4f4f4"/>
    </Group>
 
    <Group description="Post Title" selector="h3.post-title, .comments h4">
@@ -66,9 +66,9 @@ URL:      www.blogger.com
 
    <Group description="Date Header" selector=".date-header">
      <Variable name="date.header.color" description="Text Color" type="color"
-         default="$(body.text.color)" value="#222222"/>
+         default="$(body.text.color)" value="#686868"/>
      <Variable name="date.header.background.color" description="Background Color" type="color"
-         default="transparent" value="transparent"/>
+         default="transparent" value="rgba(103, 103, 103, 0)"/>
      <Variable name="date.header.font" description="Text Font" type="font"
          default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
      <Variable name="date.header.padding" description="Date Header Padding" type="string" default="inherit" value="inherit"/>
@@ -77,38 +77,38 @@ URL:      www.blogger.com
    </Group>
 
    <Group description="Post Footer" selector=".post-footer">
-     <Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666" value="#666666"/>
+     <Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666" value="#818181"/>
      <Variable name="post.footer.background.color" description="Background Color" type="color"
-         default="#f9f9f9" value="#f9f9f9"/>
-     <Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee" value="#eeeeee"/>
+         default="#f9f9f9" value="#fefefe"/>
+     <Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee" value="#f4f4f4"/>
    </Group>
 
    <Group description="Gadgets" selector="h2">
      <Variable name="widget.title.font" description="Title Font" type="font"
          default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
      <Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000" value="#000000"/>
-     <Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999" value="#999999"/>
+     <Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999" value="#a7a7a7"/>
    </Group>
 
    <Group description="Images" selector=".main-inner">
      <Variable name="image.background.color" description="Background Color" type="color" default="#ffffff" value="#ffffff"/>
-     <Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee" value="#eeeeee"/>
-     <Variable name="image.text.color" description="Caption Text Color" type="color" default="$(body.text.color)" value="#222222"/>
+     <Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee" value="#f4f4f4"/>
+     <Variable name="image.text.color" description="Caption Text Color" type="color" default="$(body.text.color)" value="#686868"/>
    </Group>
 
    <Group description="Accents" selector=".content-inner">
-     <Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee" value="#eeeeee"/>
+     <Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee" value="#f4f4f4"/>
      <Variable name="tabs.border.color" description="Tabs Border Color" type="color" default="$(body.rule.color)" value="#eeeeee"/>
    </Group>
 
    <Variable name="body.background" description="Body Background" type="background"
-       color="$(body.background.color)" default="$(color) none repeat scroll top left" value="$(color) none repeat scroll top left"/>
+       color="$(body.background.color)" default="$(color) none repeat scroll top left" value="#fffde9 url(//themes.googleusercontent.com/image?id=12ps3I0BpB_Shv7auhejxStumkK_jPmY0iqt4l_InZX-W0YUGec9-FzPobU8gNXBQMhfi) repeat scroll top center /* Credit: linearcurves (http://www.istockphoto.com/file_closeup.php?id=5537197&amp;platform=blogger) */"/>
    <Variable name="body.background.override" description="Body Background Override" type="string" default="" value=""/>
 
    <Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
-       default="url(https://resources.blogblog.com/blogblog/data/1kt/simple/gradients_light.png)" value="url(https://resources.blogblog.com/blogblog/data/1kt/simple/gradients_light.png)"/>
+       default="url(https://resources.blogblog.com/blogblog/data/1kt/simple/gradients_light.png)" value="none"/>
    <Variable name="body.background.gradient.tile" description="Body Gradient Tile" type="url"
-       default="url(https://resources.blogblog.com/blogblog/data/1kt/simple/body_gradient_tile_light.png)" value="url(https://resources.blogblog.com/blogblog/data/1kt/simple/body_gradient_tile_light.png)"/>
+       default="url(https://resources.blogblog.com/blogblog/data/1kt/simple/body_gradient_tile_light.png)" value="none"/>
 
    <Variable name="content.background.color.selector" description="Content Background Color Selector" type="string" default=".content-inner" value=".content-inner"/>
    <Variable name="content.padding" description="Content Padding" type="length" default="10px" min="0" max="100px" value="10px"/>
@@ -679,7 +679,7 @@ body.mobile  {
       gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
         if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
           gapi.iframes.getContext().openChild({
-              url: &#39;https://draft.blogger.com/navbar.g?targetBlogID\x3d6526955677982829352\x26blogName\x3dGladstar+Gifted+and+Talented+School\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://gladstargtschool6.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttps://gladstargtschool6.blogspot.com/\x26vt\x3d4994418503804599970&#39;,
+              url: &#39;https://draft.blogger.com/navbar.g?targetBlogID\x3d6526955677982829352\x26blogName\x3dGladstar+Gifted+and+Talented+School\x26publishMode\x3dPUBLISH_MODE_HOSTED\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://www.gladstar.sch.ng/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttps://www.gladstar.sch.ng/\x26vt\x3d-4175766143589837882&#39;,
               where: document.getElementById(&quot;navbar-iframe-container&quot;),
               id: &quot;navbar-iframe&quot;
           });
@@ -859,9 +859,21 @@ head.appendChild(script);
     <div class='fauxborder-right tabs-fauxborder-right'/>
     <div class='region-inner tabs-inner'>
       <b:section class='tabs' id='crosscol' maxwidgets='1' name='Cross-Column' showaddelement='yes'>
-        <b:widget id='HTML1' locked='false' title='Search For Your Learning Resources' type='HTML'>
+        <b:widget id='HTML2' locked='false' title='Search For Your Learning Resources' type='HTML'>
           <b:widget-settings>
-            <b:widget-setting name='content'><![CDATA[<blockquote><strong>Gladstar Gifted and Talented School is a school for “gifted” and talented students. All students at Gladstar Gifted and Talented School receive tailored instruction designed around the core principles of gifted education: identifying students’ talents, enhancing curricula, differentiating assignments to ability, and providing enrichment opportunities.<br /><br />PROGRAMS OFFERED<br />Course activities are designed around the Gifted Education Curriculum Skill Strands: Critical &amp; creative thinking, Problem solving, Research, Technology, Leadership and Social&amp; Emotional needs.<br />ADMISSION REQUIREMENTS<br /> Identified Ability level in term of cognitive, affective and psychomotor skills.<br /><br /><br />ADMISSION PROCEDURES<br />There are no screening criteria for admission but each child educational program-me is according to their individual needs and speed.<br /><br />HISTORY<br />This school commence operation by September 2015.<br /><br /></strong><br /></blockquote><br /><br /><br />Search For Your Learning Resources]]></b:widget-setting>
+            <b:widget-setting name='content'>&lt;strong&gt;Search For Your Learning Resources&lt;/strong&gt;
+&lt;script&gt;
+  (function() {
+    var cx = &#39;partner-pub-7518766331039540:2777009957&#39;;
+    var gcse = document.createElement(&#39;script&#39;);
+    gcse.type = &#39;text/javascript&#39;;
+    gcse.async = true;
+    gcse.src = &#39;https://cse.google.com/cse.js?cx=&#39; + cx;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+&lt;/script&gt;
+&lt;gcse:searchbox-only&gt;&lt;/gcse:searchbox-only&gt;</b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
   <!-- only display title if it's non-empty -->
@@ -877,20 +889,10 @@ head.appendChild(script);
         </b:widget>
       </b:section>
       <b:section class='tabs' id='crosscol-overflow' name='Cross-Column 2' showaddelement='no'>
-        <b:widget id='HTML2' locked='false' title='&lt;strong&gt;Search For Your Learning Resources&lt;/strong&gt;' type='HTML'>
+        <b:widget id='HTML1' locked='false' title='Search For Your Learning Resources' type='HTML'>
           <b:widget-settings>
-            <b:widget-setting name='content'>&lt;script&gt;
-  (function() {
-    var cx = &#39;partner-pub-7518766331039540:2777009957&#39;;
-    var gcse = document.createElement(&#39;script&#39;);
-    gcse.type = &#39;text/javascript&#39;;
-    gcse.async = true;
-    gcse.src = &#39;https://cse.google.com/cse.js?cx=&#39; + cx;
-    var s = document.getElementsByTagName(&#39;script&#39;)[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-&lt;/script&gt;
-&lt;gcse:searchbox-only&gt;&lt;/gcse:searchbox-only&gt;</b:widget-setting>
+            <b:widget-setting name='content'>&lt;blockquote&gt;&lt;strong&gt;Gladstar Gifted and Talented School is a school for &#8220;gifted&#8221; and talented students. All students at Gladstar Gifted and Talented School receive tailored instruction designed around the core principles of gifted education: identifying students&#8217; talents, enhancing curricula, differentiating assignments to ability, and providing enrichment opportunities.&lt;br /&gt;&lt;br /&gt;PROGRAMS OFFERED&lt;br /&gt;Course activities are designed around the Gifted Education Curriculum Skill Strands: Critical &amp;amp; creative thinking, Problem solving, Research, Technology, Leadership and Social&amp;amp; Emotional needs.&lt;br /&gt;ADMISSION REQUIREMENTS&lt;br /&gt; Identified Ability level in term of cognitive, affective and psychomotor skills.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;ADMISSION PROCEDURES&lt;br /&gt;There are no screening criteria for admission but each child educational program-me is according to their individual needs and speed.&lt;br /&gt;&lt;br /&gt;HISTORY&lt;br /&gt;This school commence operation by September 2015.&lt;br /&gt;&lt;br /&gt;&lt;/strong&gt;&lt;br /&gt;&lt;/blockquote&gt;&lt;br /&gt;
+&lt;strong&gt;Venue: 269 Lagos Abeokuta ExpressWay, Lagos.&lt;/strong&gt;</b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
   <!-- only display title if it's non-empty -->
@@ -982,12 +984,13 @@ head.appendChild(script);
             <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
               <b:widget-settings>
                 <b:widget-setting name='showDateHeader'>true</b:widget-setting>
-                <b:widget-setting name='style.textcolor'>#222222</b:widget-setting>
+                <b:widget-setting name='style.textcolor'>#686868</b:widget-setting>
                 <b:widget-setting name='showShareButtons'>true</b:widget-setting>
                 <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                <b:widget-setting name='style.urlcolor'>#666666</b:widget-setting>
+                <b:widget-setting name='style.urlcolor'>#818181</b:widget-setting>
                 <b:widget-setting name='showAuthor'>true</b:widget-setting>
-                <b:widget-setting name='style.linkcolor'>#cc6611</b:widget-setting>
+                <b:widget-setting name='disableGooglePlusShare'>false</b:widget-setting>
+                <b:widget-setting name='style.linkcolor'>#ec1f1f</b:widget-setting>
                 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
                 <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
                 <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
@@ -2036,6 +2039,39 @@ head.appendChild(script);
 </macro:includable>
 
 <b:section-contents id='sidebar-right-1'>
+  <b:widget id='ContactForm1' locked='false' title='Contact Form' type='ContactForm'>
+    <b:includable id='main'>
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='contact-form-widget'>
+    <div class='form'>
+      <form name='contact-form'>
+        <p/>
+        <data:contactFormNameMsg/>
+        <br/>
+        <input class='contact-form-name' expr:id='data:widget.instanceId + &quot;_contact-form-name&quot;' name='name' size='30' type='text' value=''/>
+        <p/>
+        <data:contactFormEmailMsg/> <span style='font-weight: bolder;'>*</span>
+        <br/>
+        <input class='contact-form-email' expr:id='data:widget.instanceId + &quot;_contact-form-email&quot;' name='email' size='30' type='text' value=''/>
+        <p/>
+        <data:contactFormMessageMsg/> <span style='font-weight: bolder;'>*</span>
+        <br/>
+        <textarea class='contact-form-email-message' cols='25' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' name='email-message' rows='5'/>
+        <p/>
+        <input class='contact-form-button contact-form-button-submit' expr:id='data:widget.instanceId + &quot;_contact-form-submit&quot;' expr:value='data:contactFormSendMsg' type='button'/>
+        <p/>
+        <div style='text-align: center; max-width: 222px; width: 100%'>
+          <p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'/>
+          <p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <b:include name='quickedit'/>
+</b:includable>
+  </b:widget>
   <b:widget id='Profile1' locked='false' title='About Me' type='Profile'>
     <b:widget-settings>
       <b:widget-setting name='showaboutme'>true</b:widget-setting>
@@ -2083,4 +2119,136 @@ head.appendChild(script);
     </div>
   </b:includable>
   </b:widget>
-</b:section-contents><b:section-contents id='footer-1'/><b:section-contents id='footer-2-1'/><b:section-contents id='footer-2-2'/></html>
+</b:section-contents><b:section-contents id='footer-1'/><b:section-contents id='footer-2-1'>
+  <b:widget id='HTML3' locked='false' title='' type='HTML'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>&lt;h1&gt;Privacy Policy&lt;/h1&gt;
+
+
+&lt;p&gt;Effective date: January 08, 2019&lt;/p&gt;
+
+
+&lt;p&gt;Gladstar Gifted and Talented School (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the https://www.gladstar.sch.ng website and the GladstarSchl mobile application (hereinafter referred to as the &quot;Service&quot;).&lt;/p&gt;
+
+&lt;p&gt;This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for Gladstar Gifted and Talented School is based on the &lt;a href=&quot;https://privacypolicies.com/blog/privacy-policy-template/&quot;&gt;Privacy Policy Template from Privacy Policies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.&lt;/p&gt;
+
+
+&lt;h2&gt;Information Collection And Use&lt;/h2&gt;
+
+&lt;p&gt;We collect several different types of information for various purposes to provide and improve our Service to you.&lt;/p&gt;
+
+&lt;h3&gt;Types of Data Collected&lt;/h3&gt;
+
+&lt;h4&gt;Personal Data&lt;/h4&gt;
+
+&lt;p&gt;While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (&quot;Personal Data&quot;). Personally identifiable information may include, but is not limited to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Email address&lt;/li&gt;&lt;li&gt;First name and last name&lt;/li&gt;&lt;li&gt;Cookies and Usage Data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Usage Data&lt;/h4&gt;
+
+&lt;p&gt;We may also collect information that your browser sends whenever you visit our Service or when you access the Service by or through a mobile device (&quot;Usage Data&quot;).&lt;/p&gt;
+&lt;p&gt;This Usage Data may include information such as your computer&#39;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.&lt;/p&gt;
+&lt;p&gt;When you access the Service with a mobile device, this Usage Data may include information such as the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data.&lt;/p&gt;
+
+&lt;h4&gt;Tracking &amp; Cookies Data&lt;/h4&gt;
+&lt;p&gt;We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.&lt;/p&gt;
+&lt;p&gt;Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.&lt;/p&gt;
+&lt;p&gt;You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service. You can learn more how to manage cookies in the &lt;a href=&quot;https://privacypolicies.com/blog/how-to-delete-cookies/&quot;&gt;Browser Cookies Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Examples of Cookies we use:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Session Cookies.&lt;/strong&gt; We use Session Cookies to operate our Service.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Preference Cookies.&lt;/strong&gt; We use Preference Cookies to remember your preferences and various settings.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Security Cookies.&lt;/strong&gt; We use Security Cookies for security purposes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Use of Data&lt;/h2&gt;
+    
+&lt;p&gt;Gladstar Gifted and Talented School uses the collected data for various purposes:&lt;/p&gt;    
+&lt;ul&gt;
+    &lt;li&gt;To provide and maintain the Service&lt;/li&gt;
+    &lt;li&gt;To notify you about changes to our Service&lt;/li&gt;
+    &lt;li&gt;To allow you to participate in interactive features of our Service when you choose to do so&lt;/li&gt;
+    &lt;li&gt;To provide customer care and support&lt;/li&gt;
+    &lt;li&gt;To provide analysis or valuable information so that we can improve the Service&lt;/li&gt;
+    &lt;li&gt;To monitor the usage of the Service&lt;/li&gt;
+    &lt;li&gt;To detect, prevent and address technical issues&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Transfer Of Data&lt;/h2&gt;
+&lt;p&gt;Your information, including Personal Data, may be transferred to &#8212; and maintained on &#8212; computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.&lt;/p&gt;
+&lt;p&gt;If you are located outside Nigeria and choose to provide information to us, please note that we transfer the data, including Personal Data, to Nigeria and process it there.&lt;/p&gt;
+&lt;p&gt;Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.&lt;/p&gt;
+&lt;p&gt;Gladstar Gifted and Talented School will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.&lt;/p&gt;
+
+&lt;h2&gt;Disclosure Of Data&lt;/h2&gt;
+
+&lt;h3&gt;Legal Requirements&lt;/h3&gt;
+&lt;p&gt;Gladstar Gifted and Talented School may disclose your Personal Data in the good faith belief that such action is necessary to:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;To comply with a legal obligation&lt;/li&gt;
+    &lt;li&gt;To protect and defend the rights or property of Gladstar Gifted and Talented School&lt;/li&gt;
+    &lt;li&gt;To prevent or investigate possible wrongdoing in connection with the Service&lt;/li&gt;
+    &lt;li&gt;To protect the personal safety of users of the Service or the public&lt;/li&gt;
+    &lt;li&gt;To protect against legal liability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Security Of Data&lt;/h2&gt;
+&lt;p&gt;The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.&lt;/p&gt;
+
+&lt;h2&gt;Service Providers&lt;/h2&gt;
+&lt;p&gt;We may employ third party companies and individuals to facilitate our Service (&quot;Service Providers&quot;), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.&lt;/p&gt;
+&lt;p&gt;These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.&lt;/p&gt;
+
+&lt;h3&gt;Analytics&lt;/h3&gt;
+&lt;p&gt;We may use third-party Service Providers to monitor and analyze the use of our Service.&lt;/p&gt;    
+&lt;ul&gt;
+        &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Google Analytics&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.&lt;/p&gt;
+                        &lt;p&gt;For more information on the privacy practices of Google, please visit the Google Privacy &amp; Terms web page: &lt;a href=&quot;https://policies.google.com/privacy?hl=en&quot;&gt;https://policies.google.com/privacy?hl=en&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+                                &lt;/ul&gt;
+
+
+&lt;h2&gt;Links To Other Sites&lt;/h2&gt;
+&lt;p&gt;Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party&#39;s site. We strongly advise you to review the Privacy Policy of every site you visit.&lt;/p&gt;
+&lt;p&gt;We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.&lt;/p&gt;
+
+
+&lt;h2&gt;Children&#39;s Privacy&lt;/h2&gt;
+&lt;p&gt;Our Service does not address anyone under the age of 18 (&quot;Children&quot;).&lt;/p&gt;
+&lt;p&gt;We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.&lt;/p&gt;
+
+
+&lt;h2&gt;Changes To This Privacy Policy&lt;/h2&gt;
+&lt;p&gt;We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.&lt;/p&gt;
+&lt;p&gt;We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the &quot;effective date&quot; at the top of this Privacy Policy.&lt;/p&gt;
+&lt;p&gt;You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.&lt;/p&gt;
+
+
+&lt;h2&gt;Contact Us&lt;/h2&gt;
+&lt;p&gt;If you have any questions about this Privacy Policy, please contact us:&lt;/p&gt;
+&lt;ul&gt;
+        &lt;li&gt;By email: admin@gladstar.sch.ng&lt;/li&gt;
+            &lt;li&gt;By visiting this page on our website: www.gladstar.sch.ng&lt;/li&gt;
+      
+        &lt;/ul&gt;</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+
+  <b:include name='quickedit'/>
+</b:includable>
+  </b:widget>
+</b:section-contents><b:section-contents id='footer-2-2'/></html>

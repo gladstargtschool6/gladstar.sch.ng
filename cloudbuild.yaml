@@ -1,8 +1,0 @@
-﻿serviceAccountName: build
-steps:
-- name: Is
-  image: 'https://drive.google.com/file/d/0B_mtazszptJacHBia0lEckVlQTA/view?usp=sharing'
-  args: ['ls']
-- name: date
-  image: 'https://drive.google.com/file/d/0B_mtazszptJacHBia0lEckVlQTA/view?usp=sharing'
-  args: ['/bin/date']

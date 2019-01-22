@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomSearchEngine id="2777009957" creator="partner-pub-7518766331039540" keywords=" Gifted Education Curriculum, Critical &amp; creative thinking, Problem solving, Research, Technology, Leadership and Social&amp; Emotional needs" language="en" encoding="UTF-8" domain="www.google.com" safesearch="true" country_code="US">
+  <Title>EduationalSearch</Title>
+  <Description>EduationalSearch</Description>
+  <Context>
+    <BackgroundLabels>
+      <Label name="_cse_2777009957" mode="FILTER"/>
+      <Label name="_cse_exclude_2777009957" mode="ELIMINATE"/>
+    </BackgroundLabels>
+  </Context>
+  <LookAndFeel code="3" googlebranding="watermark" searchboxsize="55" resultswidth="800" element_layout="5" theme="3" custom_theme="false" url_length="full" element_branding="show" enable_cse_thumbnail="true" promotion_url_length="full" font="6">
+    <Logo height="50" top="true"/>
+    <Colors url="#815FA7" background="#E1F3DA" border="#E1F3DA" title="#0066CC" text="#454545" visited="#0066CC" title_hover="#0066CC" title_active="#0066CC"/>
+    <Promotions title_color="#0066CC" title_visited_color="#0066CC" url_color="#815FA7" background_color="#CBE8B4" border_color="#94CC7A" snippet_color="#454545" title_hover_color="#0066CC" title_active_color="#0066CC"/>
+    <SearchControls input_border_color="#94CC7A" button_border_color="#94CC7A" button_background_color="#B5C9AB" tab_border_color="#A9DA92" tab_background_color="#FFFFFF" tab_selected_border_color="#A9DA92" tab_selected_background_color="#B5C9AB" button_icon_color="#FFFFFF"/>
+    <Results border_color="#A9DA92" border_hover_color="#A9DA92" background_color="#FFFFFF" background_hover_color="#FFFFFF" ads_background_color="#fff7f5" ads_border_color="#A9DA92"/>
+  </LookAndFeel>
+  <annotations start="0" num="0" total="0"/>
+  <AnalyticsConfig>
+    <MaxNumberOfPopularQueries>10</MaxNumberOfPopularQueries>
+  </AnalyticsConfig>
+  <ImageSearchSettings enable="true"/>
+  <autocomplete_settings/>
+</CustomSearchEngine>

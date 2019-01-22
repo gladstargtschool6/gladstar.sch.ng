@@ -4,10 +4,10 @@ threadsafe: true
 
 handlers:
 - url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/
-  script: home.app
+  script: index.html
 
 - url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/index\.html
-  script: home.app
+  script: index.html
 
 - url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/stylesheets
   static_dir: stylesheets

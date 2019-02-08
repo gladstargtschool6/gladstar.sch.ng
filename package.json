@@ -1,9 +1,9 @@
 {
-   "name":"GladstarSchl"
-   "main":"index.html",
-   "window":{
-      "title": Gladstar nw.js developer",
-      "width": 1024,
-      "height": 800
+   appName :"GladstarSchl";
+   main :"index.js";
+   window :{
+      title : "GladstarSchl";
+      width : 1024;
+      height : 800;
     }
  }

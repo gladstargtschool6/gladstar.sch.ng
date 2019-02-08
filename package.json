@@ -1,9 +1,9 @@
 {
-   appName :"GladstarSchl";
-   main :"index.js";
+   appName = "GladstarSchl";
+   main = "index.js";
    window :{
-      title : "GladstarSchl";
-      width : 1024;
-      height : 800;
+      title = "GladstarSchl";
+      width :1024;
+      height :800;
     }
  }

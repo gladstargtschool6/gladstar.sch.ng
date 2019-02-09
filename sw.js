@@ -3,7 +3,7 @@ self.addEventListener('install', function(event) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/gladstar.sch.ng/',
-        '/gladstar.sch.ng/index.html',
+        '/gladstar.sch.ng/index.js',
         '/gladstar.sch.ng/style.css',
         '/gladstar.sch.ng/app.js',
         '/gladstar.sch.ng/image-list.js',

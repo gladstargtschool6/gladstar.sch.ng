@@ -7,7 +7,9 @@ self.addEventListener('install', function(event) {
         '/gladstar.sch.ng/style.css',
         '/gladstar.sch.ng/app.js',
         '/gladstar.sch.ng/image-list.js',
-        'gladstar.sch.ng//gladstar-logo.jpg',
+        'gladstar.sch.ng/10609574_518313521646130_877050346121553165_n.jpg',
+        'gladstar.sch.ng/cse.xml',
+        'gladstar.sch.ng/annotation.xml',
       ]);
     })
   );

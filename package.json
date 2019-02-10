@@ -1,6 +1,6 @@
 {
    appName = "GladstarSchl";
-   main = "index.js";
+   main = "index.html";
    window :{
       title = "GladstarSchl";
       width :1024;

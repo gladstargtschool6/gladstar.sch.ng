@@ -1,9 +1,33 @@
+
 {
-   appName = "GladstarSchl";
-   main = "index.html";
-   window :{
-      title = "GladstarSchl";
-      width :1024;
-      height :800;
-    }
- }
+  "name": "npmInstallTest",
+  "version": "0.0.1",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "node install.js",
+    "publish": "node install.js",
+    "postpublish": "node install.js",
+    "preinstall": "node install.js",
+    "install": "node install.js",
+    "postinstall": "node install.js",
+    "preuninstall": "node install.js",
+    "uninstall": "node install.js",
+    "postuninstall": "node install.js",
+    "preupdate": "node install.js",
+    "update": "node install.js",
+    "postupdate": "node install.js",
+    "pretest": "node install.js",
+    "test": "mocha",
+    "posttest": "node install.js",
+    "prestop": "node install.js",
+    "stop": "node install.js",
+    "poststop": "node install.js",
+    "prerestart": "node install.js",
+    "restart": "node install.js",
+    "postrestart": "node install.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}

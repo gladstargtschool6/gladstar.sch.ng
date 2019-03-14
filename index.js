@@ -165,6 +165,7 @@ URL:      www.blogger.com
 
    <Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
    <Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+      $ npm install monkeylearn
 */
 
 /* Content

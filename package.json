@@ -3,7 +3,7 @@
   "name": "npmInstallTest",
   "version": "0.0.1",
   "description": "ERROR: No README.md file found!",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "prepublish": "node install.js",
     "publish": "node install.js",

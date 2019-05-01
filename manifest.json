@@ -1,0 +1,21 @@
+{
+    "name": "Gladstar Gifted and Talented School",
+    "short_name": "Gladstar G and T School",
+    "lang": "en",
+    "start_url": "https://www.gladstar.sch.ng/",
+    "display": "standalone",
+    "theme_color": "#c2f442",
+    "icons": [{
+            "src": "https://www.gladstar.sch.ng",
+            "sizes": "64x64"
+        },
+        {
+            "src": "pwa0-128.png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "https://www.gladstar.sch.ng",
+            "sizes": "512x512"
+        }
+    ]
+}

@@ -36,7 +36,7 @@
   "name": "getting-started-with-ml-using-js",
   "version": "1.0.0",
   "description": "Machine Learning with JavaScript. Fast and Simple.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

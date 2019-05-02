@@ -5,57 +5,6 @@
  "version": "1.0.0",
  "engines": {
  "node": "10.3.0"
-  "main" : "index.html",
-  "scripts": {
-    "prepublish": "node install.js",
-    "publish": "node install.js",
-    "postpublish": "node install.js",
-    "preinstall": "node install.js",
-    "install": "node install.js",
-    "postinstall": "node install.js",
-    "preuninstall": "node install.js",
-    "uninstall": "node install.js",
-    "postuninstall": "node install.js",
-    "preupdate": "node install.js",
-    "update": "node install.js",
-    "postupdate": "node install.js",
-    "pretest": "node install.js",
-    "test": "mocha",
-    "posttest": "node install.js",
-    "prestop": "node install.js",
-    "stop": "node install.js",
-    "poststop": "node install.js",
-    "prerestart": "node install.js",
-    "restart": "node install.js",
-    "postrestart": "node install.js"
-  }
-},
-  "repository": "",
-  "author": "",
-  "license": "BSD"
-}
-
-{
-  "name": "getting-started-with-ml-using-js",
-  "version": "1.0.0",
-  "description": "Machine Learning with JavaScript. Fast and Simple.",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "machine learning",
-    "ML",
-    "ML in JS",
-    "artificial intelligence",
-    "AI"
-  ],
-  "author": "Abhishek Soni",
-  "license": "MIT",
-  "dependencies": {
-    "csvtojson": "^1.1.9",
-    "ml-knn": "^2.0.0",
-    "ml-regression": "^4.2.1",
-    "prompt": "^1.0.0"
+  "main" : "index.html"
   }
 }

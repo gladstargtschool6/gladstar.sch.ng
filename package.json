@@ -1,8 +1,10 @@
 
 {
-  "name": "npmInstallTest",
-  "version": "0.0.1",
-  "description": "ERROR: No README.md file found!",
+ "name": "gladstargtschool",
+ "description": "facilitating functional education for the gifted",
+ "version": "1.0.0",
+ "engines": {
+ "node": "10.3.0"
   "main": "index.html",
   "scripts": {
     "prepublish": "node install.js",
@@ -26,7 +28,8 @@
     "prerestart": "node install.js",
     "restart": "node install.js",
     "postrestart": "node install.js"
-  },
+  }
+},
   "repository": "",
   "author": "",
   "license": "BSD"

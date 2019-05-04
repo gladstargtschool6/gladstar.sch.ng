@@ -6,5 +6,8 @@
  "engines": {
  "node": "10.3.0"
   "main" : "index.html"
+ $ echo "node_modules" >> .gitignore
+ $ git rm -r --cached node_modules
+ $ git commit -am 'untracked node_modules'
   }
 }

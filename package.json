@@ -10,3 +10,30 @@
  "main": " index.html"
   }
 }
+
+$ heroku config:set NPM_CONFIG_PRODUCTION=true YARN_PRODUCTION=true
+$ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
+$ git push heroku master
+"scripts": {
+ "start": "node index.js",
+ "build": "webpack"
+}
+"scripts": {
+ "start": "node index.js",
+ "build": "ng build",
+ "heroku-postbuild": "ng build --prod" // this will be run on Heroku
+}
+"scripts": {
+ "heroku-prebuild": "echo
+}
+"scripts": {
+ "start": "node server.js"
+}
+"cacheDirectories": ["client/node_modules", "server/node_modules"]
+"cacheDirectories": ["data"]
+$ cat Procfile
+"scripts": {
+ "start": "node server.js"
+}
+$ heroku scale web=0 worker=1
+$ heroku addons:create heroku-postgresql

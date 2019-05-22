@@ -10,7 +10,10 @@
  "main": " index.html"
   }
 }
-
+$ heroku config:set NODEMODULESCACHE=false
+$ git commit _am 'rebuild' __allow-empty
+$ git heroku master
+$ heroku config:unset NODEMODULESCACHE
 $ heroku config:set NPM_CONFIG_PRODUCTION=true YARN_PRODUCTION=true;
 $ git push heroku master
 "scripts": {

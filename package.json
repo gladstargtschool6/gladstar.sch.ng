@@ -11,8 +11,7 @@
   }
 }
 
-$ heroku config:set NPM_CONFIG_PRODUCTION=true YARN_PRODUCTION=true
-$ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
+$ heroku config:set NPM_CONFIG_PRODUCTION=true YARN_PRODUCTION=true;
 $ git push heroku master
 "scripts": {
  "start": "node index.js",

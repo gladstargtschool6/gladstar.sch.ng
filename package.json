@@ -1,0 +1,25 @@
+
+{
+ "name": "gladstargtschool",
+ "description": "facilitating functional education for the gifted",
+ "version": "1.0.0",
+ "engines": {
+ "node": "10.3.0",
+ "npm": "6.x",
+ "yarn": "1.x",
+ "main": "main.js"
+  }
+}
+$ git commit _am 'rebuild' __allow-empty
+$ git heroku master
+$ heroku config:unset NODEMODULESCACHE
+$ heroku config:set NPM_CONFIG_PRODUCTION=true YARN_PRODUCTION=true;
+
+"scripts": {
+ "start": "node main.js",
+ "build": "webpack"
+ "build": "ng build",
+ "heroku-postbuild": "ng build --prod" // this will be run on Heroku
+}
+
+

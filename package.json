@@ -1,5 +1,45 @@
 
 {
+  "name": "gladstargtschool/",
+  "version": "0.0.1",
+  "description": "Facilitating functional education for the next innovators, entrepreneurs and lraders",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "deploy": "gcloud app deploy",
+    "test": "repo-tools test app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gladstargtschool6/gladstar.sch.ng.git"
+  },
+  "engines": {
+    "node": ">=8.13.0"
+  },
+  "author": "Google Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.3.0"
+  },
+  "cloud-repo-tools": {
+    "requiresKeyFile": false,
+    "requiresProjectId": false,
+    "test": {
+      "app": {
+        "args": [
+          "server.js"
+        ],
+        "msg": "Hello from Gladstar Gifted and Talented School!"
+      }
+    }
+  }
+}
+
+ 
  "name": "gladstargtschool",
  "description": "facilitating functional education for the gifted",
  "version": "1.0.0",

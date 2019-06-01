@@ -3,10 +3,10 @@ cron:
   url: /OPML-of-Startup-VC-Blogs.opml/
   schedule: every 24 hours
 - description: "daily morning post"
-  url: /https://www.gladstar.sch.ng/popular/
+  url: /https://www.gladstar.sch.ng/popular?
   schedule: every day 09:00
   timezone: Australia/NSW
 - description: "new daily lessons for innovators, entrepreneurs and leaders"
-  url: /cse.xml/popular
+  url: /cse.xml/popular?
   schedule: every 24 hours
-  target: beta
+  target: cron-jobs-background-cloud-function

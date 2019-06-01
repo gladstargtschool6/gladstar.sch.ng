@@ -15,4 +15,7 @@
 
 # [START app_yaml]
 runtime: nodejs10
+handlers:
+    -url: /crown/events/*
+      script: [PATH TO APP]
 # [END app_yaml]

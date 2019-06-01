@@ -1,7 +1,7 @@
 {
   "name": "gladstargtschool/",
   "version": "0.0.1",
-  "description": "Popular Lessons for the next innovators, entrepreneurs and lraders",
+  "description": "Learning software for the next innovators, entrepreneurs and leaders",
   "private": true,
   "main": "server.js",
   "scripts": {

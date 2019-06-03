@@ -6,7 +6,7 @@ cron:
   url: /https://www.gladstar.sch.ng/popular?
   schedule: every day 09:00
   timezone: Australia/NSW
-- description: "new daily lessons for innovators, entrepreneurs and leaders"
-  url: /cse.xml/popular?
+- description: "STEM lessons for innovators, entrepreneurs and leaders"
+  url: /https://www.ck12.org/
   schedule: every 24 hours
   target: cron-jobs-background-cloud-function

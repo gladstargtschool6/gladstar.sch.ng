@@ -15,12 +15,11 @@
 runtime: python27
 api_version: 1
 threadsafe: true
-
 handlers:
 - url: /
   script: home.app
 
-- url: /index\.html
+- url: index/html
   script: home.app
 
 - url: /stylesheets
@@ -34,7 +33,7 @@ handlers:
   script: admin.app
   login: admin
 
-- url: /.*
+- url: /*
   script: not_found.app
 handlers:
     -url: /crown/events/*

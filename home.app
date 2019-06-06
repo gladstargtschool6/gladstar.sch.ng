@@ -1,4 +1,4 @@
-<Doctype html>
+<Doctype html!>
 <html>
 <head>
 <title>Gladstar Gifted and Talented School</title>

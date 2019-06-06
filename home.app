@@ -7,9 +7,12 @@
 <script src="/app.js/"></script>
 </head>
 <body id="top">
-  <div w3-include-html="../header.html"></div>   
-  <div w3-include-html="index_include.html"></div>   
-  <div w3-include-html="../footer.html"></div> 
+  <div w3-include-html="../header.html"><script src="/cron.xml/"></script>
+  </div>   
+  <div w3-include-html="index_include.html">
+  </div>   
+  <div w3-include-html="../footer.html">
+  </div> 
   <script>
     w3.includeHTML();
   </script>

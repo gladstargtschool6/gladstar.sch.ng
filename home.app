@@ -8,15 +8,16 @@
 <script src="/app.js/"></script>
 </head>
 <body id="top">
-  <div w3-include-html="../header.html">
+  <div>
   <p> Learning Software For the next innovators, entrepreneurs and leaders</p>
   </div>   
-  <div w3-include-html="index_include.html"><script src="/crown.xml/"></script>
+  <div>
+    <script> $.post("/cron.xml/") </script>
   </div>   
-  <div w3-include-html="../footer.html">
+  <div>
   </div> 
   <script>
-    w3.includeHTML();
+    $.post
   </script>
 
 <!-- JAVASCRIPTS -->

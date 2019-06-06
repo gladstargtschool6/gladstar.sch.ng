@@ -17,7 +17,7 @@
   <div>
   </div> 
   <script>
-    $.post
+    
   </script>
 
 <!-- JAVASCRIPTS -->

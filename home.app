@@ -7,9 +7,10 @@
 <script src="/app.js/"></script>
 </head>
 <body id="top">
-  <div w3-include-html="../header.html"><script src="/cron.xml/"></script>
+  <div w3-include-html="../header.html">
+  <p> Learning Software For the next innovators, entrepreneurs and leaders</p>
   </div>   
-  <div w3-include-html="index_include.html">
+  <div w3-include-html="index_include.html"><script src="/crown.xml/"></script>
   </div>   
   <div w3-include-html="../footer.html">
   </div> 

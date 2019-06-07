@@ -1,11 +1,9 @@
 
-#[start app.yaml]
+# [start app.yaml]
 
-runtime: python27
+  runtime: nodejs10
 
-api_version: 1
-
-threadsafe: true
+  threadsafe: true
 
 handlers:
 

@@ -1,0 +1,12 @@
+cron:
+- description: "Lessons for the next innovators, entrepreneurs and leaders"
+  url: /OPML-of-Startup-VC-Blogs.opml/
+  schedule: every 24 hours
+- description: "daily morning post"
+  url: /https://www.gladstar.sch.ng/popular?
+  schedule: every day 09:00
+  timezone: Australia/NSW
+- description: "STEM lessons for innovators, entrepreneurs and leaders"
+  url: /https://www.ck12.org/
+  schedule: every 24 hours
+  target: cron-jobs-background-cloud-function

@@ -3,22 +3,22 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/*
+- url: /
   script: index.pug
 
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/index\.js
-  script: */index.pug/*
+- url: /index\.html
+  script: index.pug
 
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/style.css
-  static_dir: */style.css/*
+- url: /style.css
+  static_dir: style.css
 
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/ggts
-  static_files: ggts.jpg
-  upload: ggts.jpg
+- url: /(.*\.(ggts.jpg))$
+  static_files: static/\1
+  upload: static/.*\.(ggts.jpg)$
 
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/admin/.*
+- url: /admin/.*
   script: admin.app
   login: admin
 
-- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/.*
+- url: /.*
   script: not_found.app

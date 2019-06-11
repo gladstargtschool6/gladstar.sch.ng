@@ -1,0 +1,24 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/
+  script: index.pug
+
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/index\.js
+  script: /Home/home.app
+
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/style.css
+  static_dir: /Home/style.css
+
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/ggts
+  static_files: ggts.jpg
+  upload: ggts.jpg
+
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/admin/.*
+  script: admin.app
+  login: admin
+
+- url: https://github.com/gladstargtschool6/gladstar.sch.ng.git/.*
+  script: not_found.app

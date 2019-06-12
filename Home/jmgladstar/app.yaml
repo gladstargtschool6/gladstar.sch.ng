@@ -1,24 +1,5 @@
-runtime: python27
-api_version: 1
-threadsafe: true
 
-handlers:
-- url: /
-  script: index.pug
-
-- url: /index\.html
-  script: index.pug
-
-- url: /style.css
-  static_dir: style.css
-
-- url: /(.*\.(ggts.jpg))$
-  static_files: static/\1
-  upload: static/.*\.(ggts.jpg)$
-
-- url: /admin/.*
-  script: admin.app
-  login: admin
-
-- url: /.*
-  script: not_found.app
+var express = require("express");
+var app = express();app.get('/', function(req, res){
+res.send('Home');
+});app.listen(process.env.PORT || 8080);

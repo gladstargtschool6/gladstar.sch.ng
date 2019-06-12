@@ -1,4 +1,12 @@
 
+runtime: nodejs10
+
+handlers:
+  - url: /static
+    static_dir: public
+
+  - url: /.*
+    script: auto
 var express = require("express");
 var app = express();app.get('/', function(req, res){
 res.send('Home');

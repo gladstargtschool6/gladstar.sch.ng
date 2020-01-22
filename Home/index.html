@@ -5,6 +5,20 @@
     <meta expr:content='data:blog.isMobile         ? &quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0&quot;         : &quot;width=1100&quot;' name='viewport'/>
     <b:include data='blog' name='all-head-content'/>
     <title><data:blog.pageTitle/></title>
+    // Initialize Firebase with a "default" Firebase project
+var defaultProject = firebase.initializeApp(firebaseConfig);
+
+console.log(defaultProject.name);  // "[DEFAULT]"
+
+// Option 1: Access Firebase services via the defaultProject variable
+var defaultStorage = defaultProject.storage();
+var defaultFirestore = defaultProject.firestore();
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+// Option 2: Access Firebase services using shorthand notation
+defaultStorage = firebase.storage();
+defaultFirestore = firebase.firestore();
 
     <b:skin><![CDATA[/*
 -----------------------------------------------
@@ -310,18 +324,6 @@ h2.date-header {
 
   background: transparent $(main.cap.overlay) no-repeat scroll bottom left;
 }
-// Initialize Firebase with a "default" Firebase project
-var defaultProject = firebase.initializeApp(firebaseConfig);
-
-console.log(defaultProject.name);  // "[DEFAULT]"
-
-// Option 1: Access Firebase services via the defaultProject variable
-var defaultStorage = defaultProject.storage();
-var defaultFirestore = defaultProject.firestore();
-
-// Option 2: Access Firebase services using shorthand notation
-defaultStorage = firebase.storage();
-defaultFirestore = firebase.firestore();
 
 /* Posts
 ----------------------------------------------- */

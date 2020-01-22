@@ -13,6 +13,16 @@ console.log(defaultProject.name);  // "[DEFAULT]"
 // Option 1: Access Firebase services via the defaultProject variable
 var defaultStorage = defaultProject.storage();
 var defaultFirestore = defaultProject.firestore();
+    
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://marine-infinity-244511.firebaseio.com"
+});
+
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {

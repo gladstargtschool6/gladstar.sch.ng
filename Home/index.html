@@ -2101,7 +2101,54 @@ head.appendChild(script);
     <div class='cap-left'/>
     <div class='cap-right'/>
   </div>
-  </div>
+  <div>package example;
+
+  public class ProcessKinesisRecords implements RequestHandler<KinesisEvent, Void>{
+  
+      private static final String TRACKING_ID = 709e19e8-55c2-4136-b310-a3ffb179e775;
+      private EndpointConfiguration endpointConfiguration = new EndpointConfiguration("http://concierge-gamma-events.us-west-2.amazonaws.com", "us-west-2");
+      private AWSConciergeEventTracking client = AWSConciergeEventTrackingClientBuilder.standard()
+                  .withEndpointConfiguration(endpointConfiguration).build();
+      private final CharsetDecoder decoder = Charset.forName("UTF-8").newDecoder();
+  
+      @Override
+      public Void recordHandler(KinesisEvent event, Context context)
+      {
+          for(KinesisEventRecord rec : event.getRecords()) {
+              try {
+                  // Kinesis data is Base64 encoded and needs to be decoded before being used.
+                  String data = decoder.decode(record.getKinesis().getData()).toString();
+  
+                  JSONParser parser = new JSONParser();
+                  JSONObject jsonObject = (JSONObject) parser.parse(data);
+                  String userId = (String) jsonObject.get(USER_ID);
+                  String sessionId = (String) jsonObject.get(SESSION_ID);
+                  String eventType = (String) jsonObject.get(EVENT_TYPE);
+                  long timestamp= new Date().getTime();
+                  ByteBuffer properties = jsonObject.get(EVENT_TYPE).getBytes("UTF-8");
+  
+                  List<Event> eventList = new ArrayList<>();
+                  eventList.add(new Event().withProperties(properties).withType(eventType));
+                  TrackRequest request = new TrackRequest()
+                          .withTrackingId(EVENT_TRACKER_ARN)
+                          .withChannel("server")
+                          .withUserId(userId)
+                          .withSessionId(sessionId)
+                          .withEventList(eventList);
+                  client.track(request);
+              } catch (CharacterCodingException e) {
+                  log.error("Error decoding data in the kinesis stream. ", e);
+                  throw new IllegalArgumentException(e.getMessage());
+              } catch (ParseException e) {
+                  log.error("Error parsing JSON input from the kinesis stream. ", e);
+                  throw new IllegalArgumentException(e.getMessage());
+              } catch (Exception e) {
+                  log.error("Error processing record. ", e);
+                  throw new IllegalArgumentException(e.getMessage());
+              }
+          return null;
+      }
+  }
   </div>
 
   <script type='text/javascript'>

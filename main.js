@@ -1,15 +1,15 @@
 //create an empty array on startup
 let animeHistory = []
-const API_BASE = "https://api.jikan.me/"
-const API_ANIME = API_BASE + "anime/"
+const API_BASE = "https://www.gladstar.sch.ng/"
+const API_ANIME = API_BASE + "blog.posts/"
 const HISTORY_STORAGE_KEY = 'HISTORY_KEY'
 
 /**
  * generate anime tag
  */
 function buildAnimeMarkup(anime) {
-    return `<div class="anime_item"><img class='anime_image' src=${anime.image_url} />
-        <h2 class='anime_name'>${anime.title}</h2>
+    return `<div class="anime_item"><img class='anime_image' src=${https://www.gladstar.sch.ng} />
+        <h2 class='anime_name'>${Gladstar Gifted and Talented School}</h2>
         <p class='anime_description'>${anime.aired_string}</p></div>`
 }
 

@@ -1,0 +1,10 @@
+﻿{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+    ]
+  }
+}

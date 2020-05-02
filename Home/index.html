@@ -1,26 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
   <head>
     <meta expr:content='data:blog.isMobile         ? &quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0&quot;         : &quot;width=1100&quot;' name='viewport'/>
     <b:include data='blog' name='all-head-content'/>
     <title><data:blog.pageTitle/></title>
- <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gladstar Gifted and Talented School</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <script async src="js/sw.js"></script>
+    <script async src="js/firebase.js"></script>
     <link rel="manifest" href="manifest.json">
-
-    <link rel="icon" sizes="128x128" href="ggts.jpg">
-
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="www.gladstar.sch.ng">
-    <meta name="apple-mobile-web-app-title" content="www.gladstar.sch.ng">
-    <meta name="msapplication-starturl" content="/index.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    // Initialize Firebase with a "default" Firebase project
+    
+ // Initialize Firebase with a "default" Firebase project
 var defaultProject = firebase.initializeApp(firebaseConfig);
 
 console.log(defaultProject.name);  // "[DEFAULT]"
@@ -72,36 +61,10 @@ firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error
 defaultStorage = firebase.storage();
 defaultFirestore = firebase.firestore();'use strict';
 
-module.exports = MonkeyLearn;
-
-const defaults = require('lodash/defaults');
-const isString = require('lodash/isString');
-
-const MonkeyLearnError = require('./lib/monkeylearn-error');
-const Classifiers = require('./lib/classifiers');
-const Extractors = require('./lib/extractors');
-const Workflows = require('./lib/workflows');
-
-function MonkeyLearn(a9e06a597c8882d3a07b71c08c9c1f4b8a1500cc, settings) {
-  if (!isString(a9e06a597c8882d3a07b71c08c9c1f4b8a1500ccg) {
-    throw new MonkeyLearnError('', null, 'A MonkeyLearn API key string is required to use the API. Find yours at https://app.monkeylearn.com/main/my-account/tab/api-keys/');
-  }
-  settings = settings || {};
-  defaults(settings, {
-    base_url: 'https://api.monkeylearn.com/v3/',
-    retry_if_throttled: true,
-    throttling_max_retries: 3,
-    auto_batch: true,
-    batch_size: 200
-  })
-
-  this.api_key = a9e06a597c8882d3a07b71c08c9c1f4b8a1500cc;
-  this.settings = settings;
-  this.classifiers = new Classifiers(this);
-  this.extractors = new Extractors(this);
-  this.workflows = new Workflows(this);
 }
     
+
+
 
     <b:skin><![CDATA[/*
 -----------------------------------------------
@@ -757,7 +720,7 @@ html .mobile .mobile-date-outer {
       gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
         if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
           gapi.iframes.getContext().openChild({
-              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d6526955677982829352\x26blogName\x3dGladstar+Gifted+and+Talented+School\x26publishMode\x3dPUBLISH_MODE_HOSTED\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://www.gladstar.sch.ng/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://www.gladstar.sch.ng/\x26vt\x3d9160796641264012422&#39;,
+              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d6526955677982829352\x26blogName\x3dGladstar+Gifted+and+Talented+School\x26publishMode\x3dPUBLISH_MODE_HOSTED\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://www.gladstar.sch.ng/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://www.gladstar.sch.ng/\x26vt\x3d9160796641264012422&#39;,
               where: document.getElementById(&quot;navbar-iframe-container&quot;),
               id: &quot;navbar-iframe&quot;
           });
@@ -1040,7 +1003,7 @@ head.appendChild(script);
 
         <div class='column-center-outer'>
         <div class='column-center-inner'>
-          <b:section class='main' id='main' name='Main' showaddelement='no'>
+          <b:section class='main' id='main' name='Main' showaddelement='yes'>
             <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
               <b:widget-settings>
                 <b:widget-setting name='showDateHeader'>false</b:widget-setting>
@@ -1063,14 +1026,14 @@ head.appendChild(script);
                 <b:widget-setting name='postsPerAd'>1</b:widget-setting>
                 <b:widget-setting name='showBacklinks'>true</b:widget-setting>
                 <b:widget-setting name='style.bordercolor'>#441500</b:widget-setting>
-                <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                <b:widget-setting name='showInlineAds'>true</b:widget-setting>
                 <b:widget-setting name='showReactions'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main' var='top'>
   <b:if cond='!data:mobile'>
     <!-- posts -->
     <div class='blog-posts hfeed'>
-
+      
       <b:include data='top' name='status-message'/>
 
       <b:loop values='data:posts' var='post'>
@@ -2116,54 +2079,7 @@ head.appendChild(script);
     <div class='cap-left'/>
     <div class='cap-right'/>
   </div>
-  <div>package example;
-
-  public class ProcessKinesisRecords implements RequestHandler<KinesisEvent, Void>{
-  
-      private static final String TRACKING_ID = 709e19e8-55c2-4136-b310-a3ffb179e775;
-      private EndpointConfiguration endpointConfiguration = new EndpointConfiguration("http://concierge-gamma-events.us-west-2.amazonaws.com", "us-west-2");
-      private AWSConciergeEventTracking client = AWSConciergeEventTrackingClientBuilder.standard()
-                  .withEndpointConfiguration(endpointConfiguration).build();
-      private final CharsetDecoder decoder = Charset.forName("UTF-8").newDecoder();
-  
-      @Override
-      public Void recordHandler(KinesisEvent event, Context context)
-      {
-          for(KinesisEventRecord rec : event.getRecords()) {
-              try {
-                  // Kinesis data is Base64 encoded and needs to be decoded before being used.
-                  String data = decoder.decode(record.getKinesis().getData()).toString();
-  
-                  JSONParser parser = new JSONParser();
-                  JSONObject jsonObject = (JSONObject) parser.parse(data);
-                  String userId = (String) jsonObject.get(USER_ID);
-                  String sessionId = (String) jsonObject.get(SESSION_ID);
-                  String eventType = (String) jsonObject.get(EVENT_TYPE);
-                  long timestamp= new Date().getTime();
-                  ByteBuffer properties = jsonObject.get(EVENT_TYPE).getBytes("UTF-8");
-  
-                  List<Event> eventList = new ArrayList<>();
-                  eventList.add(new Event().withProperties(properties).withType(eventType));
-                  TrackRequest request = new TrackRequest()
-                          .withTrackingId(EVENT_TRACKER_ARN)
-                          .withChannel("server")
-                          .withUserId(userId)
-                          .withSessionId(sessionId)
-                          .withEventList(eventList);
-                  client.track(request);
-              } catch (CharacterCodingException e) {
-                  log.error("Error decoding data in the kinesis stream. ", e);
-                  throw new IllegalArgumentException(e.getMessage());
-              } catch (ParseException e) {
-                  log.error("Error parsing JSON input from the kinesis stream. ", e);
-                  throw new IllegalArgumentException(e.getMessage());
-              } catch (Exception e) {
-                  log.error("Error processing record. ", e);
-                  throw new IllegalArgumentException(e.getMessage());
-              }
-          return null;
-      }
-  }
+  </div>
   </div>
 
   <script type='text/javascript'>
@@ -2288,7 +2204,7 @@ head.appendChild(script);
 &lt;p&gt;Effective date: January 08, 2019&lt;/p&gt;
 
 
-&lt;p&gt;Gladstar Gifted and Talented School (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the https://www.gladstar.sch.ng website and the GladstarSchl mobile application (hereinafter referred to as the &quot;Service&quot;).&lt;/p&gt;
+&lt;p&gt;Gladstar Gifted and Talented School (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the https://www.gladstar.sch.ng website and the GladstarGTSchOOl mobile application (hereinafter referred to as the &quot;Service&quot;).&lt;/p&gt;
 
 &lt;p&gt;This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for Gladstar Gifted and Talented School is based on the &lt;a href=&quot;https://privacypolicies.com/blog/privacy-policy-template/&quot;&gt;Privacy Policy Template from Privacy Policies&lt;/a&gt;.&lt;/p&gt;
 

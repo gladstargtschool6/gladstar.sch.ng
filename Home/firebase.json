@@ -1,10 +1,24 @@
 ﻿{
   "database": {
-    "rules": "database.rules.json"
+    "rules": "security.rules.json"
   },
   "hosting": {
-    "public": "public",
-    "rewrites": [
+    "public": "./public",
+    "headers": [
+      {
+        "source": "**/*.@index.js|index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
   }
 }

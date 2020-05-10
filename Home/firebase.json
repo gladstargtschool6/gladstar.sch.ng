@@ -3,6 +3,7 @@
     "rules": "security.rules.json"
   },
   "hosting": {
+    "site": "Gladstar Gifted and Talented School",
     "public": "./public",
     "headers": [
       {
@@ -10,7 +11,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=0"
+            "value": "max-age"
           }
         ]
       }

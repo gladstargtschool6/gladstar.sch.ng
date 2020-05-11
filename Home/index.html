@@ -13,10 +13,9 @@
   
  </head>
 <body>
-<div ng-app=""></header class="Gladstar Gifted and Talented School">
-  <div ng-app="">
+<div ng-app=""><header class="Gladstar Gifted and Talented School"></header>
     <p>Gladstar Gifted and Talented School</p>
-    <p>Facilitating Functional Education For The Next Innovators, Entrepreneurs and Leaders.
+    <b>Facilitating Functional Education For The Next Innovators, Entrepreneurs and Leaders.</b>
   </div>
   <div ng-app="">
     <p>&lt;strong&gt;Search For Your Learning Resources&lt;/strong&gt;</p>
@@ -37,7 +36,7 @@
 </header>
 
 <<div ng-app="">
-  <section>"articles-list"</section>
+  <section>"Articles-list"</section>
     <[formGroupName]="name""articles-container" />
   </div>
 <a id="sign-in-button" class="button sign-in-button">
@@ -57,7 +56,7 @@
 
       <div ng-app=""> New Post
 </a>
-<section id="new-post" class="article-form" style="display: none;">
+      <section id="new-post" class="article-form" style="display: none;">
 <!-- Ad -->
         <b>if cond='data:post.includeAd'>
           <div class='inline-ad'>
@@ -74,10 +73,16 @@
         </form>
        </section>
       </div>
-       <<div ng-app="">
-         <b>&lt;h1&gt;Privacy Policy&lt;/h1&gt;</b>
 
+  <div ng-app="">
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h3>Subscribe For Your Favorite Topics</h3>
+    <script src="index.ts"></script>
+       </div>
 
+       <div ng-app="">
+        <b>&lt;h1&gt;Privacy Policy&lt;/h1&gt;</b>   
 &lt;p&gt;Effective date: January 08, 2019&lt;/p&gt;
 
 
@@ -191,21 +196,16 @@
             &lt;li&gt;By visiting this page on our website: www.gladstar.sch.ng&lt;/li&gt;
       
         &lt;/ul&gt;</b:widget-setting>
-    <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2 class='title'><data:title/></h2>
-       </div>
+   
        <script defer src="/https://www.gstatic.com/firebase/7.14.2/firebase-app.js"></script>
    <!-- Initialize Firebase -->
-        <script defer src="init.js"></script>
-       <script defer src="/https://www.gstatic.com/firebase/7.14.2/firebase-auth.js"></script>
-       <script defer src="/https://www.gstatic.com/firebase/7.14.2/firebase-database.js"></script>
-       <script defer src="/https://www.gstatic.com/firebase/7.14.2/firebase-storage.js"></script>
-       <script defer src="/https://www.gstatic.com/firebase/7.14.2/firebase-ads.js"></script>
-       <script defer src="index.ts"></script>
+        <script async='false' src="init.js"></script>
+       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-auth.js"></script>
+       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-database.js"></script>
+       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-storage.js"></script>
+       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-ads.js"></script>
+       
       
         
-</main>
 </body>
 </html>

@@ -1,54 +1,23 @@
-{
-  "name": "gladstar.sch.ng",
-  "version": "0.0.1",
-  "description": "A boilerplate for starting js code",
-  "keywords": [
-    "js-starter",
-    "boilerplate"
-  ],
-  "private": false,
-  "main": "dist/index.js",
-  "types": "dist/index.ts",
-  "directories": {
-    "test": "__tests__"
-  },
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cover": "jest --coverage",
-    "lint": "eslint \"src/**/*.js\"",
-    "start": "parcel ./src/app.js"
-  },
-  "author": {
-    "name": "Gladstar Gifted and Talented School",
-    "email": "admin@gladstar.sch.ng"
-  },
-  "homepage": "https://github.com/gladstargtschool6/gladstar.sch.ng#readme",
+﻿{
+  "name": "quickstart-js",
+  "version": "1.0.0",
+  "description": "JavaScript quickstarts for Firebase.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gladstargtschool6/gladstar.sch.ng.git"
+    "url": "git+https://github.com/firebase/quickstart-js.git"
   },
+  "author": "",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/gladstargtschool6/gladstar.sch.ng/issues"
+    "url": "https://github.com/firebase/quickstart-js/issues"
   },
-  "license": "MIT",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "socket.io": "^2.3.0",
-    "supertest": "^4.0.2"
-  },
+  "homepage": "https://github.com/firebase/quickstart-js#readme",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "babel-jest": "^25.4.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "jest": "^25.4.0",
-    "parcel-bundler": "^1.12.4"
+    "eslint": "^6.0.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "lerna": "^3.15.0"
   },
-  "browserslist": [
-    "last 1 Chrome versions"
-  ]
+  "scripts": {
+    "test": "scripts/test.sh"
+  }
 }

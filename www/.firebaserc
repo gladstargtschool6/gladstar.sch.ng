@@ -1,0 +1,40 @@
+
+{
+
+  "projects": {
+
+    "default": "marine-infinity-244511"
+
+  },
+
+  "targets": {
+
+    "marine-infinity-244511": {
+
+      "hosting": {
+
+        "production": [
+
+          "marine-infinity-244511"
+
+        ],
+
+        "test": [
+
+          "marine-infinity-244511-test"
+
+        ],
+
+        "staging": [
+
+          "marine-infinity-244511-staging"
+
+        ]
+
+      }
+
+    }
+
+  }
+
+}

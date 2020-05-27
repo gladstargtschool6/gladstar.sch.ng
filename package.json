@@ -1,23 +1,16 @@
-﻿{
-  "name": "quickstart-js",
-  "version": "1.0.0",
-  "description": "JavaScript quickstarts for Firebase.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/firebase/quickstart-js.git"
-  },
-  "author": "",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/firebase/quickstart-js/issues"
-  },
-  "homepage": "https://github.com/firebase/quickstart-js#readme",
+{
+   "name": "GladstarGTSchool",
+   "version": "0.0.0",
+   "license": "MIT",
+   "scripts": {
+      "server": "webpack-dashboard -- webpack-dev-server --inline --port 8080",
+      "webdriver-update": "webdriver-manager update",
+   },
+  "dependencies": {
+   "@angular/common": "~2.2.0",
+   "@angular/core": "~2.2.0"
+   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "lerna": "^3.15.0"
-  },
-  "scripts": {
-    "test": "scripts/test.sh"
-  }
+   "@types/core-js": "^0.9.0"
+   }
 }

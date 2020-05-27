@@ -5,7 +5,7 @@
    "scripts": {
       "server": "webpack-dashboard -- webpack-dev-server --inline --port 8080",
       "webdriver-update": "webdriver-manager update"
-      ,"build:production": "node --version"
+      ,"build:prod": "node --version"
    },
   "dependencies": {
    "@angular/common": "~2.2.0",

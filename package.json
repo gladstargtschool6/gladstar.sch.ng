@@ -6,6 +6,7 @@
       "server": "webpack-dashboard -- webpack-dev-server --inline --port 8080",
       "webdriver-update": "webdriver-manager update"
       ,"build:prod": "node --version"
+      ,"test": "echo \"Error: no test specified\" && exit 1"
    },
   "dependencies": {
    "@angular/common": "~2.2.0",

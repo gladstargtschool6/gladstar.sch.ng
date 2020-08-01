@@ -1,284 +1,38 @@
 <!DOCTYPE html>
-<html> 
-  <head>
-    <meta expr:content='data:blog.isMobile         ? &quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0&quot;         : &quot;width=1100&quot;' name='viewport'/>
-    <b:include data='blog' name='all-head-content'/>
-    <title><data:blog.pageTitle/></title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script>
-    var blog_api_url = 'https://www.blogger.com/feeds/6526955677982829352/archive';
-var posts_list = document.getElementById('articles-list');
-var post_full = document.getElementById('article-whole');
-var posts_container = posts_list.querySelector('.articles-container');
-
-// track authenticated user to avoid triggering on refresh
-var currentUID;
-
-var loadJsonFromFirebase = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", function () {
-        callback(JSON.parse(this.response));
-    });
-    xhr.open("GET", url);
-    xhr.send();
-};
-
-var getQueryParam = function(param) {
-  let params = window.location.search.substr(1);
-  params = params.split("&");
-  let paramList = {};
-  for (let i = 0; i < params.length; i++) {
-    let tmp = params[i].split("=");
-    paramList[tmp[0]] = decodeURI(tmp[1]);
-  }
-  return paramList[param];
+<html lang="en" ng-app="GladstarGTSchool">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gladstar Gifted and Talented School</title>
+    <!-- angular source -->
+    <script src="https://code.angularjs.org/1.5.3/angular.min.js"></script>
+    <!-- Your custom controller code -->
+    <script src="js/controllers.js"></script>
+<script>
+angular.module('ngApp', ['ngRoute'])
+.config(function($routeProvider){
+$routeProvider.when("/",
+{
+templateUrl: "home.html",
+controller: "homeCtrl"
 }
-
-
-// hide the individual post and show the list of posts
-const showListClick = (e) => {
-  // hide the single post
-  post_full.classList.add('start-hidden');
-  // show the full list
-  posts_container.classList.remove('start-hidden');
-}
-
-
-// handle selecting the links in the list
-const showPostClick = (e) => {
-  let post_id = e.target.dataset.post;
-
-  if (post_id) {
-    // load the post from ajax call
-    loadJsonFromFirebase(blog_api_url + '/' + post_id, function(data) {
-      let div = document.createElement('div');
-      let ts = new Date(data.created);
-      div.innerHTML = `<article class="article-block">
-            <h2>${data.title}</h2>
-            <time>${ts.toDateString()}</time>
-            <div class="excerpt">
-              <p>${data.content}</p>
-            </div>
-          </article>`;
-      post_full.replaceChild(div, post_full.firstChild);
-
-      // hide the full list
-      posts_container.classList.add('start-hidden');
-      // show the single post
-      post_full.classList.remove('start-hidden');
-    });
-  }
-};
-
-// toggle buttons on sign in/out auth changes
-const onLogInOutChange = function(user) {
-
-  // Ignore token refresh events
-  if (user && currentUID === user.uid) {
-    return;
-  }
-
-  // If logged in, show the new post button
-  if (user) {
-    currentUID = user.uid;
-    document.getElementById('sign-in-button').style.display = 'none';
-    document.getElementById('new-post-button').style.display = 'block';
-  } else {
-    currentUID = null;
-    document.getElementById('sign-in-button').style.display = 'block';
-    document.getElementById('new-post-button').style.display = 'none';
-  }
-}
-
-//document.getElementById('post-view-all').addEventListener('click', showListClick);
-posts_list.addEventListener('click', showPostClick);
-
-loadJsonFromFirebase(blog_api_url, function(data) {
-  let list = document.createElement('div');
-  Object.keys(data).forEach(function(key) {
-    let ts = new Date(data[key].created);
-    list.innerHTML += `<article class="article-block">
-      <h2>${data[key].title}</h2>
-      <time>${ts.toDateString()}</time>
-      <div class="excerpt">
-        <p>${data[key].content.substr(0, 150)}...</p>
-      </div>
-      <a data-post="${key}">Read Post</a>
-    </article>`;
-  });
-  posts_container.insertBefore(list, posts_container.firstChild);
+);
 });
-
-// Bindings on load.
-document.addEventListener('DOMContentLoaded', function() {
-
-  document.getElementById('sign-in-button').addEventListener('click', function() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider);
-  });
-
-  // Listen for auth state changes
-  firebase.auth().onAuthStateChanged(onLogInOutChange);
-  
-  // show the new post form
-  document.getElementById('new-post-button').addEventListener('click', function() {
-    document.getElementById('new-post').style.display = '';
-  });
-  
-  // Saves message on form submit.
-  let messageForm = document.getElementById('message-form');
-  messageForm.onsubmit = function(e) {
-
-    e.preventDefault();
-    let postTitle = document.getElementById('new-post-title');
-    let postContent = document.getElementById('new-post-content');
-    let title = postTitle.value;
-    let content = postContent.value;
-
-    if (content) {
-      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-        var xhr = new XMLHttpRequest();
-        xhr.addEventListener("load", function () {
-          // on success, display the post at the top of the list & hide the form
-          postTitle.value = '';
-          postContent.value = '';
-          document.getElementById('new-post').style.display = 'none';
-
-          let postDetails = JSON.parse(this.response);
-          let div = document.createElement('div');
-          let ts = new Date(postDetails.created);
-          div.innerHTML += `<article class="article-block">
-            <h2>${postDetails.title}</h2>
-            <time>${ts.toDateString()}</time>
-            <div class="excerpt">
-              <p>${postDetails.content}</p>
-            </div>
-          </article>`;
-          posts_container.insertBefore(div, posts_container.firstChild);
-        });
-        xhr.open("POST", blog_api_url);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(JSON.stringify({"title": title, "content": content, "token": idToken}));
-      }).catch(function (error) {
-        // TODO: handle error, not authorized
-      });
-    } else {
-      // TODO: display box around the missing content field
-    }
-  }
-
-});
-const renderPost = function(postId, postData, summary = false) {
-  let ts = new Date(postData.created);
-  if (summary) {
-    return `<article class="article-block">
-      <h2>${postData.title}</h2>
-      ${ts.toDateString()}
-      <div class="excerpt">
-        <p>${postData.content.substr(0, 150)}...</p>
-      </div>
-      <a>Read Post</a>
-    </article>`;
-  } else {
-    return `<article class="article-block">
-      <h2>${postData.title}</h2>
-      ${ts.toDateString()}
-      <div class="excerpt">
-        <p>${postData.content}</p>
-      </div>
-    </article>`;
-  }
-}
-
-// example, in messageForm.onsubmit function
-
-  let postDetails = JSON.parse(this.response);
-  let div = document.createElement('div');
-  // this is the replaced rendering section
-  div.innerHTML += renderPost(postDetails.id, postDetails, false);
-  posts_container.insertBefore(div, posts_container.firstChild);
-
-// example, in showPostClick
-
-  let div = document.createElement('div');
-  // this is the replaced rendering function
-  div.innerHTML = renderPost(post_id, data, false);
-  post_full.replaceChild(div, post_full.firstChild);
-
-// example in initial page data load
-
-  let list = document.createElement('div');
-    Object.keys(data).forEach(function(key) {
-      // this is the new replaced code
-      list.innerHTML += renderPost(key, data[key], true);
-    });
-  posts_container.insertBefore(list, posts_container.firstChild);
-const getAnchorParam = function() {
-  return (window.location.href.split('#').length > 1) ? window.location.href.split('#')[1] : null;
-}
-// load everything up
-let post_id = getAnchorParam();
-if (post_id) {
-  loadJsonFromFirebase(blog_api_url + post_id, function(postData) {
-    let list = document.createElement('div');
-    list.innerHTML += renderPost(postData.id, postData, true);
-    posts_container.insertBefore(list, posts_container.firstChild);
-  });
-} else {
-  loadJsonFromFirebase(blog_api_url, function(data) {
-    let list = document.createElement('div');
-    Object.keys(data).forEach(function(key) {
-      list.innerHTML += renderPost(key, data[key], true);
-    });
-    posts_container.insertBefore(list, posts_container.firstChild);
-  });
-}
- const showPostClick = (e) => {
-    let post_id = e.target.dataset.post;
-
-    if (post_id) { 
-      // update the URL if we are not traversing history state
-      if (!e.skipPushState) {
-        history.pushState( { post_id: post_id }, null, '#/' + post_id);
-      }
-    }
-  }
-const showListClick = (e) => {
-  // hide the single post
-  post_full.classList.add('start-hidden');
-  // show the full list
-  posts_container.classList.remove('start-hidden');
-
-  // adjust the URL back to the full list
-  if (!e.skipPushState) {
-    history.pushState({ post_id: 'full-list' }, null, window.location.href.split('#')[0]);
-  }
-window.addEventListener('popstate', function(e) {
-  let post_id = e.state ? (e.state.post_id ? e.state.post_id : null) : null;
-  // we are using render function that adjust the pushstate, skip when calling here.
-  e.skipPushState = true;
-  // when the post_id is null, we don't have any managed history, so do nothing
-  if (post_id == null) { 
-    return; 
-  } else if (post_id == 'full-list') {
-    showListClick(e);
-  } else {
-    // add our missing data-post value so that we can use the showPostClick function
-    e.target.dataset = e.target.dataset ? e.target.dataset : {};
-    e.target.dataset.post = post_id;
-    showPostClick(e);
-  }
-});
-}
+angular.module('ngApp').controller('homeCtrl',['$scope', function($scope) {
+$scope.welcome= "Welcome to Gladstar Gifted and Talented School!";
+}]);
 </script>
-    <style>* {
+<style>* {
   box-sizing: border-box;
 }
 
 .site-header {
   border-top: 1rem solid #556CF6;
   background: #26232d;
-  padding: 2rem;
+  padding: 
+
+2rem;
   position: relative;
 }
 .site-title {
@@ -286,7 +40,9 @@ window.addEventListener('popstate', function(e) {
   letter-spacing: 3px;
 }
 .site-subtitle {
-  font-style: italic;
+  font-style: 
+
+italic;
   opacity: 0.5;
 }
 .sign-in-button {
@@ -296,7 +52,9 @@ window.addEventListener('popstate', function(e) {
 }
 
 .site-wrap {
-  padding: 2rem;
+  padding: 
+
+2rem;
 }
 
 .article-block {
@@ -304,19 +62,25 @@ window.addEventListener('popstate', function(e) {
   margin: 0 auto 2rem;
   background: #403E4F;
   padding: 2rem;
-  box-shadow: 0.25rem 0.25rem 1.3rem rgba(0, 0, 0, 0.33);
+  box-shadow: 
+
+0.25rem 0.25rem 1.3rem rgba(0, 0, 0, 0.33);
 }
 time {
   display: block;
   padding: 0.25rem 0.75rem;
-  text-transform: uppercase;
+  text-transform: 
+
+uppercase;
   letter-spacing: 0.25rem;
   background: linear-gradient(
     to right,
     #4a4c5a,
     #403E4D
   );
-  font-size: 0.75rem;
+  font-
+
+size: 0.75rem;
 }
 .article-body {
   color: #9e9fa8;
@@ -329,32 +93,42 @@ time {
 
 
 body {
-  margin: 0;
+  
+
+margin: 0;
   background: #323041;
   color: white;
   font-family: 'PT Serif', serif;
   line-height: 1.4;
 }
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4, 
+
+h5, h6,
 .site-title {
   font-family: 'Barlow Semi Condensed', sans-serif;
   text-transform: uppercase;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, 
+
+h5, h6 {
   margin: 0 0 1rem 0;
   letter-spacing: 0.1rem;
   line-height: 1;
 }
 h1 {
   font-size: 3.0rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 
+
+0.1rem;
 }
 a {
   color: #8b9bff;
   font-weight: bold;
   border-bottom: 1px solid;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;  
+  padding: 
+
+0.25rem 0.5rem;  
 }
 a svg {
   fill: currentcolor;
@@ -362,329 +136,73 @@ a svg {
 }
 a:hover,
 a:focus {
-  background: rgba(0, 0, 0, 0.33);
+  background: rgba(0, 0, 
+
+0, 0.33);
 }
     </style>  
- </head>
-<body>
-<div ng-app=""><header class="Gladstar Gifted and Talented School"></header>
-    <p>Gladstar Gifted and Talented School</p>
-    <b>Facilitating Functional Education For The Next Innovators, Entrepreneurs and Leaders.</b>
-  </div>
-  <div ng-app="">
-    <p>&lt;strong&gt;Search For Your Learning Resources&lt;/strong&gt;</p>
-&lt;script&gt;
-  (function() {
-    const cx = &#39;partner-pub-7518766331039540:2777009957&#39;;
-    var gcse = document.createElement(&#39;script&#39;);
-    gcse.type = &#39;text/javascript&#39;;
-    gcse.async = true;
-    gcse.src = &#39;https://cse.google.com/cse.js?cx=&#39; + cx;
-    var s = document.getElementsByTagName(&#39;script&#39;)[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-&lt;/script&gt;
-&lt;gcse:searchbox-only&gt;&lt;/gcse:searchbox-only&gt;
-  </div> 
+</head>
+<body ng-app="GladstarGTSchool">
+<div><h2>Gladstar Gifted and Talented School</h2></div>
 
-</header>
-
-<<div ng-app="">
-  <section>"Articles-list"</section>
-    <[formGroupName]="name""articles-container" />
-  </div>
-<a id="sign-in-button" class="button sign-in-button">
-  <svg width="24" height="24" viewBox="0 0 24 24">
-    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
-  </svg>
-  Sign In
-</a>
-<a id="new-post-button" class="button sign-in-button start-hidden">
-  <svg width="24" height="24" viewBox="0 0 24 24">
-    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
-  </svg>
-  <b:section-contents id='sidebar-right-1'>
-  <b:widget id='PageList1' locked='false' title='Pages' type='PageList'>
-    <b/widget-settings>
-      <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://www.gladstar.sch.ng/', 'title': 'Home', 'position': 0}, '8041911045274679112': {'href': 'https://www.gladstar.sch.ng/p/gladstargtschool-is-learning-resource.html', 'title': 'Chat with Our Counselor', 'position': 1}, '3822569622119211026': {'href': 'https://www.gladstar.sch.ng/p/blog-page_2.html', 'title': 'About Us', 'position': 2}, 'link0': {'href': 'http://www.Facebook.com/gladstar-gifted-and-talented-school', 'title': 'Facebook Page', 'position': 3}, 'link1': {'href': 'https://www.linkedin.com/in/giftedtalentededucationexpert', 'title': 'Director\x27s Linkedin Profile', 'position': 4}}]]></b>
-
-      <div ng-app=""> New Post
-</a>
-      <section id="new-post" class="article-form" style="display: none;">
-<!-- Ad -->
-        <b>if cond='data:post.includeAd'>
-          <div class='inline-ad'>
-            <data:1639191272987391_2360388014201043,1639191272987391_2555614208011755/>
-          </div>
-        </b>
-           <h2>New Post</h2>
-           <form id="message-form" action="#">
-           <h4><label for="new-post-title">Title</label></h4>
-           <input type="text" id="new-post-title">
-           <h4><label for="new-post-content">Content</label></h4>
-           <textarea rows="3" id="new-post-content"></textarea>
-           <button type="submit">Add post</button>
-        </form>
-       </section>
-      </div>
-
-       <div ng-app="">
-        <b>&lt;h1&gt;Privacy Policy&lt;/h1&gt;</b>   
-&lt;p&gt;Effective date: January 08, 2019&lt;/p&gt;
-
-
-&lt;p&gt;Gladstar Gifted and Talented School (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the https://www.gladstar.sch.ng website and the GladstarGTSchOOl mobile application (hereinafter referred to as the &quot;Service&quot;).&lt;/p&gt;
-
-&lt;p&gt;This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for Gladstar Gifted and Talented School is based on the &lt;a href=&quot;https://privacypolicies.com/blog/privacy-policy-template/&quot;&gt;Privacy Policy Template from Privacy Policies&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.&lt;/p&gt;
-
-
-&lt;h2&gt;Information Collection And Use&lt;/h2&gt;
-
-&lt;p&gt;We collect several different types of information for various purposes to provide and improve our Service to you.&lt;/p&gt;
-
-&lt;h3&gt;Types of Data Collected&lt;/h3&gt;
-
-&lt;h4&gt;Personal Data&lt;/h4&gt;
-
-&lt;p&gt;While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (&quot;Personal Data&quot;). Personally identifiable information may include, but is not limited to:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Email address&lt;/li&gt;&lt;li&gt;First name and last name&lt;/li&gt;&lt;li&gt;Cookies and Usage Data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Usage Data&lt;/h4&gt;
-
-&lt;p&gt;We may also collect information that your browser sends whenever you visit our Service or when you access the Service by or through a mobile device (&quot;Usage Data&quot;).&lt;/p&gt;
-&lt;p&gt;This Usage Data may include information such as your computer&#39;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.&lt;/p&gt;
-&lt;p&gt;When you access the Service with a mobile device, this Usage Data may include information such as the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data.&lt;/p&gt;
-
-&lt;h4&gt;Tracking &amp; Cookies Data&lt;/h4&gt;
-&lt;p&gt;We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.&lt;/p&gt;
-&lt;p&gt;Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.&lt;/p&gt;
-&lt;p&gt;You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service. You can learn more how to manage cookies in the &lt;a href=&quot;https://privacypolicies.com/blog/how-to-delete-cookies/&quot;&gt;Browser Cookies Guide&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Examples of Cookies we use:&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;Session Cookies.&lt;/strong&gt; We use Session Cookies to operate our Service.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Preference Cookies.&lt;/strong&gt; We use Preference Cookies to remember your preferences and various settings.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Security Cookies.&lt;/strong&gt; We use Security Cookies for security purposes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Use of Data&lt;/h2&gt;
-    
-&lt;p&gt;Gladstar Gifted and Talented School uses the collected data for various purposes:&lt;/p&gt;    
-&lt;ul&gt;
-    &lt;li&gt;To provide and maintain the Service&lt;/li&gt;
-    &lt;li&gt;To notify you about changes to our Service&lt;/li&gt;
-    &lt;li&gt;To allow you to participate in interactive features of our Service when you choose to do so&lt;/li&gt;
-    &lt;li&gt;To provide customer care and support&lt;/li&gt;
-    &lt;li&gt;To provide analysis or valuable information so that we can improve the Service&lt;/li&gt;
-    &lt;li&gt;To monitor the usage of the Service&lt;/li&gt;
-    &lt;li&gt;To detect, prevent and address technical issues&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Transfer Of Data&lt;/h2&gt;
-&lt;p&gt;Your information, including Personal Data, may be transferred to &#8212; and maintained on &#8212; computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.&lt;/p&gt;
-&lt;p&gt;If you are located outside Nigeria and choose to provide information to us, please note that we transfer the data, including Personal Data, to Nigeria and process it there.&lt;/p&gt;
-&lt;p&gt;Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.&lt;/p&gt;
-&lt;p&gt;Gladstar Gifted and Talented School will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.&lt;/p&gt;
-
-&lt;h2&gt;Disclosure Of Data&lt;/h2&gt;
-
-&lt;h3&gt;Legal Requirements&lt;/h3&gt;
-&lt;p&gt;Gladstar Gifted and Talented School may disclose your Personal Data in the good faith belief that such action is necessary to:&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;To comply with a legal obligation&lt;/li&gt;
-    &lt;li&gt;To protect and defend the rights or property of Gladstar Gifted and Talented School&lt;/li&gt;
-    &lt;li&gt;To prevent or investigate possible wrongdoing in connection with the Service&lt;/li&gt;
-    &lt;li&gt;To protect the personal safety of users of the Service or the public&lt;/li&gt;
-    &lt;li&gt;To protect against legal liability&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Security Of Data&lt;/h2&gt;
-&lt;p&gt;The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.&lt;/p&gt;
-
-&lt;h2&gt;Service Providers&lt;/h2&gt;
-&lt;p&gt;We may employ third party companies and individuals to facilitate our Service (&quot;Service Providers&quot;), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.&lt;/p&gt;
-&lt;p&gt;These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.&lt;/p&gt;
-
-&lt;h3&gt;Analytics&lt;/h3&gt;
-&lt;p&gt;We may use third-party Service Providers to monitor and analyze the use of our Service.&lt;/p&gt;    
-&lt;ul&gt;
-        &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Google Analytics&lt;/strong&gt;&lt;/p&gt;
-        &lt;p&gt;Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.&lt;/p&gt;
-                        &lt;p&gt;For more information on the privacy practices of Google, please visit the Google Privacy &amp; Terms web page: &lt;a href=&quot;https://policies.google.com/privacy?hl=en&quot;&gt;https://policies.google.com/privacy?hl=en&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-                                &lt;/ul&gt;
-
-
-&lt;h2&gt;Links To Other Sites&lt;/h2&gt;
-&lt;p&gt;Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party&#39;s site. We strongly advise you to review the Privacy Policy of every site you visit.&lt;/p&gt;
-&lt;p&gt;We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.&lt;/p&gt;
-
-
-&lt;h2&gt;Children&#39;s Privacy&lt;/h2&gt;
-&lt;p&gt;Our Service does not address anyone under the age of 18 (&quot;Children&quot;).&lt;/p&gt;
-&lt;p&gt;We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.&lt;/p&gt;
-
-
-&lt;h2&gt;Changes To This Privacy Policy&lt;/h2&gt;
-&lt;p&gt;We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.&lt;/p&gt;
-&lt;p&gt;We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the &quot;effective date&quot; at the top of this Privacy Policy.&lt;/p&gt;
-&lt;p&gt;You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.&lt;/p&gt;
-
-
-&lt;h2&gt;Contact Us&lt;/h2&gt;
-&lt;p&gt;If you have any questions about this Privacy Policy, please contact us:&lt;/p&gt;
-&lt;ul&gt;
-        &lt;li&gt;By email: admin@gladstar.sch.ng&lt;/li&gt;
-            &lt;li&gt;By visiting this page on our website: www.gladstar.sch.ng&lt;/li&gt;
-      
-        &lt;/ul&gt;</b:widget-setting>
-    <div><script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-
-
-app.js"></script>
-   <!-- Initialize Firebase -->
-        <script async='false' src="/https://www.gstatic.com/firebase/init.js"></script>
-       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-
-
-auth.js"></script>
-       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-
-
-functions.js"></script>
-       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-
-
-remote-config.js"></script>
-       <script async='false' src="/https://www.gstatic.com/firebase/7.14.2/firebase-
-
-ads.js"></script>
-       <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
-       <script>
-           // TODO: Replace the following with your app's Firebase project configuration//
-var firebaseConfig = {
-    apiKey: "AIzaSyCVgTBrHMK808-huXDbEsx5nDmyPwbxiLI",
-    authDomain: "gladstar.sch.ng",
-    databaseURL: "https://marine-infinity-244511.firebaseio.com",
-    projectId: "marine-infinity-244511",
-    storageBucket:"marine-infinity-244511.appspot.com" ,
-    messagingSenderId: "web:ZGU5YTEyYTUtYTNmZi00MDA4LWExNTMtYTc0OWY4OTAxYmY1",
-    appId: "1:61216389060:web:ce5a28284874fd514b5691",
-    measurementId: "G-measurement-id",
-    };
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-// Initialize Firebase with a "default" Firebase project
-var defaultProject = firebase.initializeApp(firebaseConfig);
-
-console.log(defaultProject.name);  // "[DEFAULT]"
-
-// Option 1: Access Firebase services via the defaultProject variable
-var defaultStorage = defaultProject.storage();
-var defaultFirestore = defaultProject.firestore();
-
-// Option 2: Access Firebase services using shorthand notation
-defaultStorage = firebase.storage();
-defaultFirestore = firebase.firestore();
-
-     function authService($firebaseAuth, firebaseDataService, cityTimerService) {
-    var firebaseAuthObject = $firebaseAuth();
-    var service = {
-       firebaseAuthObject: firebaseAuthObject,
-       register: register,
-       login: login,
-       logout: logout,
-       isLoggedIn: isLoggedIn,
-       sendWelcomeEmail: sendWelcomeEmail
-    };
-    return service;
-    ////////////
-    function register(user) {
-       return firebaseAuthObject.$createUserWithEmailAndPassword(user.email, 
-
-user.password);
-    }
-    function login(user) {
-       return firebaseAuthObject.$signInWithEmailAndPassword(user.email, user.password);
-    }
-    function logout() {
-       cityTimerService.reset();
-       firebaseAuthObject.$signOut();
-    }
-    function isLoggedIn() {
-       return firebaseAuthObject.$getAuth();
-    }
-    function sendWelcomeEmail(emailAddress) {
-       firebaseDataService.emails.push({
-           emailAddress: emailAddress
-       });
-    }
-}
-
-// Retrieve Firebase Messaging object.
-const messaging = firebase.messaging();
-// Add the public key generated from the console here.
-messaging.usePublicVapidKey
-
-("BGIVTt3A3MEuQ2BUzGPQNV8gayRbsWkbCxPaJVQRZRR9FfeA63GkoskeIigC2ZyrA-iWgJ1PRYBqmG7FWJQJ9lE");
-// Get Instance ID token. Initially this makes a network call, once retrieved
-// subsequent calls to getToken will return from cache.
-messaging.getToken().then((currentToken) => {
-  if (currentToken) {
-    sendTokenToServer(currentToken);
-    updateUIForPushEnabled(currentToken);
-  } else {
-    // Show permission request.
-    console.log('No Instance ID token available. Request permission to generate one.');
-    // Show permission UI.
-    updateUIForPushPermissionRequired();
-    setTokenSentToServer(false);
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  showToken('Error retrieving Instance ID token. ', err);
-  setTokenSentToServer(false);
+     Facilitating Functional Education For Next Innovators, Entrepreneurs and Leaders.
+<div ng-view></div>
+<script>
+appName.controller('controllerName',
+['$http', function($http){
+// Simple GET request example:
+$http({
+method: 'GET',
+url: '/https://www.amazon.com/joseph-moshood/e/B00851DDTG/'
+}).then(function successCallback(response) {
+// this callback will be called asynchronously
+// when the response is available
+}, function errorCallback(response) {
+// called asynchronously if an error occurs
+// or server returns response with an error status.
 });
-// The topic name can be optionally prefixed with "/topics/".
-var topic1 = "Android_Development",
-var topic2 = "Career_Planning",
-var topic3 = "Cloud_Engineering",
-var topic4 = "Digital_marketing",
-var topic5 = "entrepreneurship",
-var topic6 = "Gardening",
-var topic7 = "leadership",
-var topic8 = "Learning_Language_skills",
-var topic9 = "Mobile_Web_Development",
-var topic10 ="Parenting-Course",
-var topic11 = "Technology";
-
-var message = {
-  data: {
-    score: '850',
-    time: '2:45'
-  },
-
-topics: 
-
-Android_Development,Career_Planning,Cloud_Engineering,Digital_marketing,entrepreneurship,Gardening,leadership,Learning_Language_skills,Mobile_Web_Development,ParentingCourse,Technology,
-};
-
-// Send a message to devices subscribed to the provided topic.
-admin.messaging().send(message)
-  .then((response) => {
-    // Response is a message ID string.
-    console.log('Successfully sent message:', response);
-  })
-  .catch((error) => {
-    console.log('Error sending message:', error);
-  });
+}])
 </script>
 </div>
-       
+<div>
+<script>
+$http.get('/https://www.blogger.com/feeds/6526955677982829352/archive', config).then(successCallback, 
+
+errorCallback);
+$http.post('/https://www.blogger.com/feeds/6526955677982829352/archive', data, config).then(successCallback, 
+
+errorCallback);
+</script>
+</div>
+<div>
+<script>
+$scope.data = []
+$q.all([
+$http.get("data.json"),
+$http.get("more-data.json"),
+]).then(function(responses) {
+$scope.data = responses.map((resp) => resp.data);
+});
+</script>
+</div>
+          <div ng-class='inline-ad'>
+            <data:1639191272987391_2360388014201043,1639191272987391_2555614208011755/>
+          </div>
+<div><script async='false' src="/https://cdn.firebase.com/js/client/7.14.2/firebase-app.js"></script>
+
+   <!-- Initialize Firebase -->
+        <script async='false' src="/https://cdn.firebase.com/js/clent/7.14.2/init.js"></script>
+       <script async='false' src="/https://cdn.firebase.com/js/client/7.14.2/firebase-auth.js"></script>
+
+       <script async='false' src="/https://cdn.firebase.com/js/client/7.14.2/firebase-functions.js"></script>
+
+       <script async='false' src="/https://cdn.firebase.com/js/client/7.14.2/firebase-remote-config.js"></script>
       
-        
+       <script async='false' src="/https://cdn.firebase.com/js/client/7.14.2/firebase-ads.js"></script>
+       <script async='false' src="https://cdn.firebase.com/js/client/7.14.2/firebase.js"></script>
+       <script async='false' src="https://cdn.firebase.com/js/simple-login/7.14.2/firebase-simple-
+
+login.js"></script>
+</div>
 </body>
 </html>

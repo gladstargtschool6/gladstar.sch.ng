@@ -10,7 +10,10 @@
       {
         "source": "**",
         "destination": "/index.html"
-     "functions": {
-    "engines": {"node": "12"}
+		"function": "main"
+		"runtime": "nodejs12"
+      }
+    ]
   }
 }
+

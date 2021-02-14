@@ -10,8 +10,7 @@
       {
         "source": "**",
         "destination": "/index.html"
-      }
-      "runtime": "nodejs12"
-    ]
+     "functions": {
+    "engines": {"node": "12"}
   }
 }

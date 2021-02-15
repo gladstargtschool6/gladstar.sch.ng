@@ -10,7 +10,6 @@
       {
         "source": "**",
         "destination": "/index.html"
-		"function": "main"
 		"runtime": "nodejs12"
       }
     ]
